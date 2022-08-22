@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>登录-医院管理系统</title>
-    <link rel="icon" href="../images/timg.jpg">
+    <link rel="icon" href="../images/img_t.jpg">
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all"/>
     <link rel="stylesheet" th:href="@{/css/index.css}" media="all"/>
     <link rel="stylesheet" th:href="@{/css/public.css}" media="all"/>
     <style>
         .loginBody{
-            background: url(../images/login_bg.jpg) no-repeat center center;
+            background: url(../images/img.jpg) no-repeat center center;
             margin-top: 580px;
             -webkit-background-size: 1920px;
             background-size: 1720px 930px;
@@ -18,7 +18,7 @@
 </head>
 <body class="loginBody">
 <form class="layui-form" id="loginFrm" th:action="@{/sel/login}" method="post">
-    <div class="login_face"><img src="../images/timg.jpg" class="userAvatar"></div>
+    <div class="login_face"><img src="../images/img_t.jpg" class="userAvatar"></div>
     <div class="layui-form-item input-item">
         <label>用户名</label>
         <input type="text" id="loginname" placeholder="请输入用户名" autocomplete="off" name="loginname" class="layui-input" lay-verify="required">
