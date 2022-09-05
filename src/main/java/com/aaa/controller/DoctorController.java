@@ -94,7 +94,7 @@ public class DoctorController {
 
     }
     /*
-     * 查询科室
+     * 查询项目
      * */
     @RequestMapping("findAllDepartments")
     @ResponseBody

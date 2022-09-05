@@ -33,14 +33,14 @@ import java.util.List;
         model.addAttribute("report",sel);
         return "cao/report";
     }
-    //查询所有的科室
+    //查询所有的项目
     @RequestMapping("seldep")
     @ResponseBody
     public Object seldep(){
         List<CDepartments> seldep = creportService.seldep();
         return  seldep;
     }
-    //查询所有的挂号类型
+    //查询所有的项目规模
     @RequestMapping("/selreg")
     @ResponseBody
     public Object selreg(){
@@ -77,7 +77,7 @@ import java.util.List;
             return seven;
         }
     }
-    //根据挂号类型查找该类型的价格
+    //根据项目规模查找该类型的价格
     @RequestMapping("seltymo")
     @ResponseBody
     public Object seltymo(CRegisteredtype cRegisteredtype){

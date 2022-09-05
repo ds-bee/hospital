@@ -25,12 +25,12 @@ public class CreportServiceImpl implements CreportService {
     public List<ReportVo> selById(Integer reportId) {
         return creportMapper.selById(reportId);
     }
-    //查询科室
+    //查询项目
     @Override
     public List<CDepartments> seldep() {
         return creportMapper.seldep();
     }
-    //查询挂号类型
+    //查询项目规模
     @Override
     public List<CRegisteredtype> selreg() {
         return creportMapper.selreg();

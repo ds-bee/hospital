@@ -93,13 +93,13 @@
             </tr>
             <tr style="height: 10px"></tr>
             <tr>
-                <td class="nam">科室:</td>
+                <td class="nam">项目:</td>
                 <td class="valu"><input class="layui-input" id="rede" type="text" readonly/> </td>
                 <td class="nam">医生:</td>
                 <td class="valu"><input class="layui-input" id="redo" type="text" readonly/> </td>
                 <td class="nam">电话:</td>
                 <td class="valu"><input class="layui-input"  id="phone" type="text" readonly/> </td>
-                <td class="nam">挂号费:</td>
+                <td class="nam">项目经费:</td>
                 <td class="valu"><input class="layui-input"  id="price" type="text" readonly/> </td>
         </table>
     </form>
@@ -128,7 +128,7 @@
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 </div>
 <!--编辑按钮结束-->
-<!--填写病因页面开始-->
+<!--填写效果页面开始-->
 <div style="display: none;padding-top: 20px" id="bingye" >
     <div style="height: 30px;width: 100px;margin-left:30px;line-height: 30px;">填写用户病状:</div>
     <textarea id="bingyi" style="width: 600px;margin-left: 30px;height: 300px;" required lay-verify="required" placeholder="请输入症状病状" class="layui-textarea"></textarea>
@@ -138,7 +138,7 @@
     </div>
 </div>
 <input type="hidden" id="cashier"><!--项目id-->
-<!--填写病因页面结束-->
+<!--填写效果页面结束-->
 </body>
 <script th:src="@{/layui/layui.js}"></script>
 
@@ -183,11 +183,11 @@
                             ,{field:'carid', title:'身份证号',align:'center',width:"8%"}
                             ,{field:'sex', title:'性别',align:'center',width:"8%"}
                             ,{field:'age', title:'年龄',align:'center',width:"8%"}
-                            ,{field:'department', title:'科室',align:'center',width:"8%"}
+                            ,{field:'department', title:'项目',align:'center',width:"8%"}
                             ,{field:'doctorName', title:'医生',align:'center',width:"8%"}
                             ,{field:'type', title:'挂号类别',align:'center',width:"8%"}
                             ,{field:'time', title:'挂号时间',align:'center',width:"8%"}
-                            ,{field:'price', title:'挂号费',align:'center',width:"8%"}
+                            ,{field:'price', title:'项目经费',align:'center',width:"8%"}
                             ,{fixed: 'right', title:'操作', toolbar: '#userBar',align:'center',width:'8%'}
                         ]]
                     })
@@ -257,7 +257,7 @@
                 openUpdate(data);
             }
         });
-        //点击病因提交按钮
+        //点击效果提交按钮
         $("#addbing").click(function(){
             var reid=$("#reid").val();
             var bing=$("#bingyi").val();
@@ -276,7 +276,7 @@
                 }
             });
         })
-        //点击病因取消按钮
+        //点击效果取消按钮
         $("#qu").click(function(){
             $("#bingyi").val("");
             layer.close(bingying)

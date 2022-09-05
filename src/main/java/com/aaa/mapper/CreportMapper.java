@@ -11,7 +11,7 @@ public interface CreportMapper {
     //查询挂号的所有信息
     List<ReportVo> sel(ReportVo reportVo);
     List<ReportVo> selById(Integer reportId);
-    //查询所有的科室
+    //查询所有的项目
     List<CDepartments> seldep();
     //查询所有的门诊类型
     List<CRegisteredtype> selreg();
@@ -23,7 +23,7 @@ public interface CreportMapper {
     List<ReportVo> five(CDoctor cDoctor);
     List<ReportVo> six(CDoctor cDoctor);
     List<ReportVo> seven(CDoctor cDoctor);
-    //根据所选科室查询该科室的价格
+    //根据所选项目查询该项目的价格
     Integer seltymo(CRegisteredtype cRegisteredtype);
     //添加挂号人员
     Integer addre(CReport cReport);

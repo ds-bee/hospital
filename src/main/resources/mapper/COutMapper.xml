@@ -35,8 +35,8 @@
     <update id="shoufei" parameterType="ReportVo">
         UPDATE report set state=2 WHERE reportId=#{reportId}
     </update>
-    <!--添加挂号费到收费白上-->
+    <!--添加项目经费到收费白上-->
     <insert id="guafei" parameterType="ReportVo">
-        insert into cashier (reportid,durgname,durgnum,repiceprice,repicetotal,state,ctime)values (#{reportId},'挂号费',1,#{price},#{price},2,NOW())
+        insert into cashier (reportid,durgname,durgnum,repiceprice,repicetotal,state,ctime)values (#{reportId},'项目经费',1,#{price},#{price},2,NOW())
     </insert>
 </mapper>

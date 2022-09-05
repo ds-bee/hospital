@@ -67,19 +67,19 @@
         </if>
         ORDER BY r.reportId DESC
     </select>
-    <!--查询所有的科室-->
+    <!--查询所有的项目-->
     <select id="seldep" resultType="CDepartments">
         select * from  departments
     </select>
-    <!--查询所有的挂号类型-->
+    <!--查询所有的项目规模-->
     <select id="selreg" resultType="CRegisteredtype">
         select * from  registeredtype
     </select>
-    <!--根据科室和挂号类型查询医生-->
+    <!--根据项目和项目规模查询医生-->
     <select id="seldector" parameterType="CDoctor" resultType="CDoctor">
         select * FROM doctor where departmentId=#{departmentId} and registeredid=#{registeredid} and dstate=0
     </select>
-    <!--根据挂号类型去查找多钱-->
+    <!--根据项目规模去查找多钱-->
     <select id="seltymo" parameterType="CRegisteredtype" resultType="Integer">
         select price from registeredtype where registeredId=#{registeredId}
     </select>

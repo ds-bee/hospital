@@ -4,7 +4,7 @@ package com.aaa.entity;
 public class CDoctor {
     private int doctorId;//医生id
     private String doctorName;//医生姓名
-    private Integer departmentId;//外键科室id
+    private Integer departmentId;//外键项目id
     private Integer registeredid;//外键类型id
     private Integer dstate;
 

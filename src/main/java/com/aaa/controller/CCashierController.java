@@ -147,7 +147,7 @@ public class CCashierController {
         tableData.put("data", pageInfo.getList());
         return tableData;
     }
-    //添加用户病因
+    //添加用户效果
     @RequestMapping("addbing")
     @ResponseBody
     public Object addbing(Integer reid, String bing, CReport cReport){
@@ -156,7 +156,7 @@ public class CCashierController {
         Integer addbing = cCashierService.addbing(cReport);
         return addbing;
     }
-    //查询用户有没有填写病因
+    //查询用户有没有填写效果
     @RequestMapping("selbing")
     @ResponseBody
     public Object selbing(Integer reid){

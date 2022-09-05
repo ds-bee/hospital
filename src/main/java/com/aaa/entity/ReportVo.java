@@ -11,12 +11,12 @@ public class ReportVo {
     private Date time;//时间
     private String users;//操作员
     private Integer state;//状态
-    private  Integer ddepartmentid;//科室id
+    private  Integer ddepartmentid;//项目id
     private Integer ddoctorid;//医生id
-    private Integer dredisteredid;//挂号类型id
-    private String department;//科室
+    private Integer dredisteredid;//项目规模id
+    private String department;//项目
     private String doctorName;//医生姓名
-    private String type;//挂号类型
+    private String type;//项目规模
     private String carid;//身份证号
     private String phone;//电话
     private  Integer carido;//身份证前

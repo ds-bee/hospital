@@ -316,7 +316,7 @@
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">科室:</label>
+                            <label class="layui-form-label">项目:</label>
                             <div class="layui-input-inline">
                                 <select name="departmentId" id="departmentId" lay-verify="required" lay-filter="xmFilter">
                                     <option value=""></option>
@@ -538,7 +538,7 @@
                  {field:'bedId', title:'ID',align:'center',width:'10%'}
                 ,{field:'bedname', title:'床位',align:'center',width:"25%"}
                 ,{field:'price', title:'价格',align:'center',width:"20%"}
-                ,{field:'department', title:'科室',align:'center',width:"25%"}
+                ,{field:'department', title:'项目',align:'center',width:"25%"}
                 ,{fixed: 'right', title:'操作', toolbar: '#bed',align:'center',width:'20%'}
             ]]
         })
@@ -582,7 +582,7 @@
         function openAddBed(){
             mainIndex=layer.open({
                 type:1,
-                title:'添加科室',
+                title:'添加项目',
                 content:$("#saveOrUpdateDiv5432"),
                 area:['400px','400px'],
                 success:function(index){

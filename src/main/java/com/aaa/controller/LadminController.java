@@ -52,15 +52,15 @@ public class LadminController {
         return tableData;
     }
 
-    //页面请求查询科室信息
+    //页面请求查询项目信息
     @RequestMapping("/selDepartment")
     @ResponseBody
     public Object selDepartment(){
         //new一个实体类
         Departments departments=new Departments();
-        //查询所有科室
+        //查询所有项目
         List<Departments> Departments= ladminService.selDepartment(departments);
-        //把查到的科室返回前台下拉框中
+        //把查到的项目返回前台下拉框中
         return Departments;
     }
 
@@ -70,9 +70,9 @@ public class LadminController {
     public Object selDoctor(Integer departmentId){
         //new一个实体类
         Doctor doctor=new Doctor();
-        //把获取过来的科室编号放入实体类中
+        //把获取过来的项目编号放入实体类中
         doctor.setDepartmentId(departmentId);
-        //根据科室查询旗下所有医生
+        //根据项目查询旗下所有医生
         List<Doctor> doctors = ladminService.selDoctor(doctor);
         //把查到的医生返回前台下拉框中
         return doctors;
@@ -151,7 +151,7 @@ public class LadminController {
         return tableData;
     }
 
-    //转科室
+    //转项目
     @RequestMapping("/updKe")
     @ResponseBody
     public Object updKe(Register register){

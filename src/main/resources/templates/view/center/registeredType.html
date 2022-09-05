@@ -37,12 +37,12 @@
                     <label class="layui-form-label">类型:</label>
                     <div class="layui-input-inline">
                         <input type="hidden" name="registeredId">
-                        <input type="text" name="type" lay-verify="required"   placeholder="请输入挂号类型" autocomplete="off"
+                        <input type="text" name="type" lay-verify="required"   placeholder="请输入项目规模" autocomplete="off"
                                class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">价格:</label>
+                    <label class="layui-form-label">项目经费:</label>
                     <div class="layui-input-inline">
                         <input type="number" name="price" lay-verify="required"  placeholder="请输入价格" autocomplete="off"
                                class="layui-input">
@@ -97,7 +97,7 @@
             ,cols: [[   //列表数据
                 {field:'registeredId', title:'ID',align:'center',width:'20%'}
                 ,{field:'type', title:'类型',align:'center',width:"30%"}
-                ,{field:'price', title:'价格',align:'center',width:"30%"}
+                ,{field:'price', title:'项目经费',align:'center',width:"30%"}
                 ,{fixed: 'right', title:'操作', toolbar: '#registered',align:'center',width:'20%'}
             ]]
         })

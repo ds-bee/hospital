@@ -54,8 +54,8 @@
 </form>
 <div id="dang">
     <input type="radio" id="bang1"  name="dang" value="1" title="" >&nbsp;&nbsp;&nbsp;&nbsp;查看全部&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" id="bang2" name="dang" value="2" title="" >&nbsp;&nbsp;&nbsp;&nbsp;当天挂号&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" id="bang3"  name="dang" value="3" title="">&nbsp;&nbsp;&nbsp;&nbsp;预约挂号&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" id="bang2" name="dang" value="2" title="" >&nbsp;&nbsp;&nbsp;&nbsp;现场报名&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" id="bang3"  name="dang" value="3" title="">&nbsp;&nbsp;&nbsp;&nbsp;预约报名&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="hidden" id="ban" th:value="${session.ban}"/>
 </div>
     <div id="all">
@@ -88,7 +88,7 @@
                         </div>
                     </div>
                 <div class="layui-form-item"style="margin-top:-10px;">
-                    <label class="layui-form-label" style="text-align: right">挂号类型:</label>
+                    <label class="layui-form-label" style="text-align: right">项目规模:</label>
                     <div class="layui-input-block"  style="text-align: left">
                         <span th:text="${map.type}"></span>
                     </div>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 <div class="layui-form-item"style="margin-top:-10px;">
-                    <label class="layui-form-label" >所属科室:</label>
+                    <label class="layui-form-label" >所属项目:</label>
                     <div class="layui-input-block"  style="text-align: left">
                         <span th:text="${map.department}"></span>
                     </div>
@@ -161,7 +161,7 @@
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">科室：</label>
+                <label class="layui-form-label">项目：</label>
                 <div class="layui-input-inline">
                     <select name="department" id="departmentId"  lay-verify="required" lay-filter="departmentId">
                         <option value=""></option>
@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">挂号类型:</label>
+                <label class="layui-form-label">项目规模:</label>
                 <div class="layui-input-inline">
                     <select name="reporttype" id="registeredId" lay-verify="required" lay-filter="registeredId">
                         <option value=""></option>
@@ -185,7 +185,7 @@
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">挂号费:</label>
+                <label class="layui-form-label">项目经费:</label>
                 <div class="layui-input-inline">
                     <input type="text" name="price" id="typemoney" lay-verify="required" autocomplete="off"
                            class="layui-input" readonly>
@@ -203,10 +203,10 @@
 <div id="zhaunyu" style="display:none;padding-left: 20px;">
     <div class="layui-form-item">
         <div class="layui-inline">
-            <label class="layui-form-label">请填写病因:</label>
+            <label class="layui-form-label">请填写效果:</label>
             <div class="layui-input-inline">
                 <input type="hidden" name="areaId">
-                <input type="text" name="areaName" id="bingying"  lay-verify="required"   placeholder="请输入病因" autocomplete="off"
+                <input type="text" name="areaName" id="bingying"  lay-verify="required"   placeholder="请输入效果" autocomplete="off"
                        class="layui-input ">
             </div>
         </div>
@@ -252,11 +252,11 @@
                 $("#bang3").prop("checked",true);
             }
         });
-        //挂号类型的id
+        //项目规模的id
         var registeredId=null;
-        //科室id
+        //项目id
         var departmentId=null;
-        //查看选中科室id
+        //查看选中项目id
         form.on('select(departmentId)', function(data){
             departmentId=data.value;//得到被选中的值
             //获取select属性下的所有
@@ -285,7 +285,7 @@
                 })
             }
         });
-        //查看选中的挂号类型的id
+        //查看选中的项目规模的id
         form.on('select(registeredId)', function(data){
             registeredId=data.value;//得到被选中的值
             $.ajax({
@@ -306,7 +306,7 @@
             if(departmentId==null){
                 return false;
             }else{
-                //alert("科室"+departmentId+"类型"+registeredId);
+                //alert("项目"+departmentId+"类型"+registeredId);
                 //渲染下拉框中的值
                 $.ajax({
                     //要跳转的地址
@@ -326,7 +326,7 @@
                 })
             }
         });
-        //渲染科室下拉框中的值
+        //渲染项目下拉框中的值
         $.ajax({
             //要跳转的地址
             url: '../cao/seldep',
@@ -342,7 +342,7 @@
                 layui.form.render("select");//重新渲染 固定写法
             }
         })
-        //渲染挂号类型的下拉框
+        //渲染项目规模的下拉框
         $.ajax({
             //要跳转的地址
             url: '../cao/selreg',

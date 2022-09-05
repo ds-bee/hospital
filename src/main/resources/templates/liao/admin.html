@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">科室:</label>
+                <label class="layui-form-label">项目:</label>
                 <div class="layui-input-inline">
                     <select name="departmentId" id="departmentId" lay-verify="required" lay-filter="department">
                         <option value=""></option>
@@ -145,22 +145,22 @@
     </div>
     <table class="layui-hide" id="show" lay-filter="show"></table>
 </div>
-<!--转科室开始-->
+<!--转项目开始-->
 <div id="ke" style="display: none;">
     <form class="layui-form"  lay-filter="frm" id="frm">
         <div class="layui-form-item" style="margin-top: 5%;">
             <!--用户-->
             <input type="hidden" name="registerid" id="t4">
-            <!--科室-->
+            <!--项目-->
             <div class="layui-inline">
-                <label class="layui-form-label">科室:</label>
+                <label class="layui-form-label">项目:</label>
                 <div class="layui-input-inline">
                     <select id="t1">
                     </select>
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">科室:</label>
+                <label class="layui-form-label">项目:</label>
                 <div class="layui-input-inline">
                     <select name="departmentId" id="departmentId1" lay-verify="required" lay-filter="department">
                         <option value="">请选择</option>
@@ -252,7 +252,7 @@
                 ,{field:'phone', title:'电话',align:'center',width:'11%'}
                 ,{field:'idcard', title:'身份证号',align:'center',width:'15%'}
                 ,{field:'registerDate', title:'入院日期',align:'center',width:'13%',sort: true}
-                ,{field:'department', title:'科室',align:'center',width:'6%'}
+                ,{field:'department', title:'项目',align:'center',width:'6%'}
                 ,{field:'doctorName', title:'医生',align:'center',width:'6%'}
                 ,{field:'bedName', title:'床位',align:'center',width:'7%'}
                 ,{fixed: '', title:'操作', toolbar: '#ToolBarss',align:'center',width:'7%'}
@@ -458,7 +458,7 @@
                     area:['700px','500px'],
                     content:$("#ke"),
                     success:function(index){
-                        //在科室下拉框添加内容
+                        //在项目下拉框添加内容
                         $.ajax({
                             url: '../liao/selDepartment',
                             dataType: 'json',

@@ -82,16 +82,16 @@
             <tr style="height: 10px"></tr>
             <tr style="height: 10px"></tr>
             <tr>
-                <td class="nam">科室:</td>
+                <td class="nam">项目:</td>
                 <td class="valu"><input class="layui-input" id="rede" type="text" readonly/> </td>
                 <td class="nam">医生:</td>
                 <td class="valu"><input class="layui-input" id="redo" type="text" readonly/> </td>
                 <td class="nam">电话:</td>
                 <td class="valu"><input class="layui-input"  id="phone" type="text" readonly/> </td>
-                <td class="nam">挂号费:</td>
+                <td class="nam">项目经费:</td>
                 <td class="valu"><input class="layui-input"  id="price" type="text" readonly/> </td>
                 <td rowspan="2" class="sbb">
-                    <input id="bingyin" type="button" class="layui-btn layui-icon-add-circle-fine" value="填写病因">
+                    <input id="bingyin" type="button" class="layui-btn layui-icon-add-circle-fine" value="填写效果">
                 </td>
          </table>
          </form>
@@ -141,22 +141,22 @@
     <button type="button" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh layui-icon-delete" id="clo" >取消</button>
 </div>
 <!--添加药品数量结束-->
-<!--填写病因页面开始-->
+<!--填写效果页面开始-->
 <div style="display: none;padding-top: 20px" id="bingye" >
-    <div style="height: 30px;width: 100px;margin-left:30px;line-height: 30px;">填写用户病因:</div>
-    <textarea id="bingyi" style="width: 600px;margin-left: 30px;height: 300px;" required lay-verify="required" placeholder="请输入症状病因" class="layui-textarea"></textarea>
+    <div style="height: 30px;width: 100px;margin-left:30px;line-height: 30px;">填写用户效果:</div>
+    <textarea id="bingyi" style="width: 600px;margin-left: 30px;height: 300px;" required lay-verify="required" placeholder="请输入症状效果" class="layui-textarea"></textarea>
     <div style="height: 100px;width: 600px;margin-left:30px;text-align: center;line-height: 100px;">
         <input type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" id="addbing" style="height:40px;width: 100px;" value="提交">
         <input type="button" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh layui-icon-delete" id="qu" style="height:40px;width: 100px;" value="取消" >
     </div>
 </div>
-<!--填写病因页面结束-->
-<!--查看病因页面开始-->
+<!--填写效果页面结束-->
+<!--查看效果页面开始-->
 <div style="display: none;padding-top: 20px" id="bingzhaung" >
     <div style="height: 30px;width: 100px;margin-left:30px;line-height: 30px;">查看用户病况:</div>
-    <textarea id="bingzh" readonly style="width: 600px;margin-left: 30px;height: 300px;" required lay-verify="required" placeholder="请输入症状病因" class="layui-textarea"></textarea>
+    <textarea id="bingzh" readonly style="width: 600px;margin-left: 30px;height: 300px;" required lay-verify="required" placeholder="请输入症状效果" class="layui-textarea"></textarea>
 </div>
-<!--查看病因页面结束-->
+<!--查看效果页面结束-->
 </body>
 <script th:src="@{/layui/layui.js}"></script>
 
@@ -202,11 +202,11 @@
                             ,{field:'carid', title:'身份证号',align:'center',width:"8%"}
                             ,{field:'sex', title:'性别',align:'center',width:"8%"}
                             ,{field:'age', title:'年龄',align:'center',width:"8%"}
-                            ,{field:'department', title:'科室',align:'center',width:"8%"}
+                            ,{field:'department', title:'项目',align:'center',width:"8%"}
                             ,{field:'doctorName', title:'医生',align:'center',width:"8%"}
                             ,{field:'type', title:'挂号类别',align:'center',width:"8%"}
                             ,{field:'time', title:'挂号时间',align:'center',width:"8%"}
-                            ,{field:'price', title:'挂号费',align:'center',width:"8%"}
+                            ,{field:'price', title:'项目经费',align:'center',width:"8%"}
                             ,{fixed: 'right', title:'操作', toolbar: '#userBar',align:'center',width:'8%'}
                         ]]
                     })
@@ -301,10 +301,10 @@
             if(reid==''){
                 layer.msg("请选择患者");
             }else{
-                //进入查询患者的有没有写病因
+                //进入查询患者的有没有写效果
             $.post("../caocc/selbing",{"reid":reid},function(obj){
                 if(obj==''){
-                    layer.msg("请先填写病因");
+                    layer.msg("请先填写效果");
                 }else{
                     mainIndex=layer.open({
                         type:1,
@@ -412,7 +412,7 @@
                 $("#bingzh").val(obj);
             })
             }
-        //点击添加病因按钮打开添加病因页面
+        //点击添加效果按钮打开添加效果页面
         $("#bingyin").click(function(){
             var reid=$("#reid").val();
             if(reid==''){
@@ -421,7 +421,7 @@
                 $.post("../caocc/selbing",{"reid":reid},function(obj){
                         bingying=layer.open({
                             type:1,
-                            title:'填写病因',
+                            title:'填写效果',
                             content:$("#bingye"),
                             area:['700px','500px']
                         });
@@ -429,7 +429,7 @@
                 });
             }
         })
-        //点击病因提交按钮
+        //点击效果提交按钮
         $("#addbing").click(function(){
             var reid=$("#reid").val();
             var bing=$("#bingyi").val();
@@ -442,7 +442,7 @@
                 }
             });
         })
-        //点击病因取消按钮
+        //点击效果取消按钮
         $("#qu").click(function(){
             $("#bingyi").val("");
             layer.close(bingying)

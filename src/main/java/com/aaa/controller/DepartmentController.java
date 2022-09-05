@@ -19,7 +19,7 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
     /*
-     * 查询科室
+     * 查询项目
      * */
     @RequestMapping("departmentList")
     @ResponseBody
@@ -39,7 +39,7 @@ public class DepartmentController {
         return tableData;
     }
     /*
-     * 添加科室
+     * 添加项目
      * */
     @RequestMapping("addDepartment")
     @ResponseBody
@@ -59,7 +59,7 @@ public class DepartmentController {
     }
 
     /*
-     * 删除科室
+     * 删除项目
      * */
     @RequestMapping("deleteDepartment")
     @ResponseBody

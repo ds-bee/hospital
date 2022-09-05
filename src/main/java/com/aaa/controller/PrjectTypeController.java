@@ -404,7 +404,7 @@ public class PrjectTypeController {
     @Autowired
     private DepartmentService departmentService;
     /*
-     * 查询科室
+     * 查询项目
      * */
     @RequestMapping("departmentList")
     @ResponseBody

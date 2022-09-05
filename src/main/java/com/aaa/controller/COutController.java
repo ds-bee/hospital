@@ -104,7 +104,7 @@ public class COutController {
     @ResponseBody
     public Object shoufei(ReportVo reportVo){
         Integer shoufei = cOutService.shoufei(reportVo);
-        //把挂号费添加到收费表上
+        //把项目经费添加到收费表上
         Integer guafei = cOutService.guafei(reportVo);
         return  shoufei;
     }

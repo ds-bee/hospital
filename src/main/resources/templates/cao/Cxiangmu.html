@@ -115,13 +115,13 @@
             </tr>
             <tr style="height: 20px"></tr>
             <tr>
-                <td class="nam">科室:</td>
+                <td class="nam">项目:</td>
                 <td class="valu"><input class="layui-input" id="rede" type="text" readonly/> </td>
                 <td class="nam">医生:</td>
                 <td class="valu"><input class="layui-input" id="redo" type="text" readonly/> </td>
                 <td class="nam">电话:</td>
                 <td class="valu"><input class="layui-input"  id="phone" type="text" readonly/> </td>
-                <td class="nam">挂号费:</td>
+                <td class="nam">项目经费:</td>
                 <td class="valu"><input class="layui-input"  id="price" type="text" readonly/> </td>
         </table>
     </form>
@@ -216,11 +216,11 @@
                             ,{field:'carid', title:'身份证号',align:'center',width:"8%"}
                             ,{field:'sex', title:'性别',align:'center',width:"8%"}
                             ,{field:'age', title:'年龄',align:'center',width:"8%"}
-                            ,{field:'department', title:'科室',align:'center',width:"8%"}
+                            ,{field:'department', title:'项目',align:'center',width:"8%"}
                             ,{field:'doctorName', title:'医生',align:'center',width:"8%"}
                             ,{field:'type', title:'挂号类别',align:'center',width:"8%"}
                             ,{field:'time', title:'挂号时间',align:'center',width:"8%"}
-                            ,{field:'price', title:'挂号费',align:'center',width:"8%"}
+                            ,{field:'price', title:'项目经费',align:'center',width:"8%"}
                             ,{fixed: 'right', title:'操作', toolbar: '#userBar',align:'center',width:'8%'}
                         ]]
                     })
@@ -315,7 +315,7 @@
             }else {
                 $.post("../caocc/selbing", {"reid": reid}, function (obj) {
                     if (obj == '') {
-                        layer.msg("请先填写病因");
+                        layer.msg("请先填写效果");
                     } else {
                         mainIndex = layer.open({
                             type: 1,

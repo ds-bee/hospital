@@ -22,6 +22,6 @@ public interface COutService {
     Double selch(CCashier cCashier);
     //修改用户信息付过钱了
     Integer shoufei(ReportVo reportVo);
-    //把挂号费添加到收费表上
+    //把项目经费添加到收费表上
     Integer guafei(ReportVo reportVo);
 }

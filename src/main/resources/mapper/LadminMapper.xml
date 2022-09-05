@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.aaa.mapper.LadminMapper">
-    <!--查询科室信息-->
+    <!--查询项目信息-->
     <select id="selDepartment" resultType="Departments">
         select * from departments
     </select>
@@ -54,7 +54,7 @@
     <update id="updZ" parameterType="Register">
         UPDATE report SET state =5 WHERE reportid=#{reportid}
     </update>
-    <!--转科室-->
+    <!--转项目-->
     <update id="updKe" parameterType="Register">
         update register set price=(select (1-(cast(replace(b.discount,'%','') as decimal(18,2))/100))*a.price*(TO_DAYS(NOW())-TO_DAYS(ifnull(b.zhuan,b.registerDate)))+IFNULL(b.price,0) price from (select price from bed where bedid=(select bedNum from register where registerid=#{registerid}))a,(select * from register where registerid=#{registerid}) b),zhuan=NOW(),department=#{departmentId},doctor=#{doctorId},bedNum=#{bedId} where registerid=#{registerid}
     </update>

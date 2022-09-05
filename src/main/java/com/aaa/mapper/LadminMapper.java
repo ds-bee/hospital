@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface LadminMapper {
 
-    //条件查询科室
+    //条件查询项目
     List<Departments> selDepartment(Departments departments);
     //条件查询医生
     List<Doctor> selDoctor(Doctor doctor);

@@ -1,8 +1,8 @@
 package com.aaa.entity;
 
 public class CDepartments {
-    private int departmentId;//科室id
-    private String department;//科室名称
+    private int departmentId;//项目id
+    private String department;//项目名称
 
     public int getDepartmentId() {
         return departmentId;

@@ -13,7 +13,7 @@ public interface DepartmentMapper {
     int count(Departments departments);
 
     /*
-    * 判断该科室是否还有医生
+    * 判断该项目是否还有医生
     * */
     int checkCount(Integer departmentId);
 }
