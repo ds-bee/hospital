@@ -42,38 +42,13 @@
             border-radius: 2px;
             cursor: pointer;
         }
-        #pay{
-            text-align: center;
-            font-size: 16px;
-            color: #737383;
-            margin-top: 10px;
-        }
-        .inp{
-            border: #CCCCCC solid 1px;
-            height: 35px;
-            border-radius: 3px;
-            width: 200px;
-        }
-        #tibu{
+        #addbut1{
             width: 100px;
-            background-color:rgb(1,150,136);
-            border: 0px;
-            border-radius: 3px;
-            margin-right: 20px;
-            height: 30px;
-            font-size: 14px;
-            color: white;
-            cursor: pointer;
-        }
-        #qubu{
-            width: 100px;
-            background-color:#CCCCCC;
-            border: 0px;
-            border-radius: 3px;
-            margin-left: 20px;
-            height: 30px;
-            font-size: 14px;
-            cursor: pointer;
+            height: 40px;
+            background-color:white;
+            color: rgb(1,150,136);
+            border: 1px solid rgb(1,150,136);
+            border-radius: 2px;
         }
         #selinp1{
             width: 200px;
@@ -137,6 +112,7 @@
     <table class="layui-hide" id="userTable" lay-filter="userTable"></table>
     <div  id="userBar" style="display: none;">
         <a class="layui-btn layui-btn-xs" lay-event="edit">选择</a>
+        <a class="layui-btn layui-btn-xs" style="background-color: red" lay-event="delrepi">删除</a>
     </div>
 </div>
 <!--病号信息弹出层结束-->
@@ -153,10 +129,12 @@
     <div style="display: none" id="adddrug">
         <input type="text" placeholder="请输入项目名字" id="selinp" autocomplete="off" >
         <input type="button"  id="selbut" value="查询"/>
+        <input type="button" id="addbut1" value="添加"/>
     </div>
     <table class="layui-hide" id="drugtable" lay-filter="drugtable"></table>
     <div  id="choose" style="display: none;">
         <a class="layui-btn layui-btn-xs" lay-event="druedit">选择</a>
+        <a class="layui-btn layui-btn-xs" lay-event="druedit">删除</a>
     </div>
 </div>
 <!--药品详情页面结束-->
@@ -171,6 +149,46 @@
     <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release" id="addru">提交</button>
     <button type="button" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh layui-icon-delete" id="clo" >取消</button>
 </div>
+
+<div style="display: none;padding: 20px" id="addMedPhaseDiv" >
+    <form class="layui-form"  lay-filter="dataFrm" id="dataForm" style="margin-top: 20px">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">疗程名称:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="medPhase" lay-verify="required"   placeholder="请输入" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">单位:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="unit" lay-verify="required"   placeholder="请输入" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">疗程描述:</label>
+                <div class="layui-input-inline">
+                    <textarea name="desc" lay-verify="required"   placeholder="请输入" autocomplete="off"
+                              class="layui-input" ></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="text-align: center;">
+            <div class="layui-input-block" style=" margin-left:0px">
+                <button type="button" class="layui-btn layui-btn-normal layui-btn-sm layui-icon layui-icon-release"  lay-filter="doSubmit" lay-submit="">提交</button>
+                <button type="reset" class="layui-btn layui-btn-warm layui-btn-sm layui-icon layui-icon-refresh" >重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+
 <!--添加药品数量结束-->
 </body>
 <script th:src="@{/layui/layui.js}"></script>
@@ -239,9 +257,9 @@
                         ,limits: [5, 10, 15]
                         ,limit: 5//默认采用3
                         ,cols: [[   //列表    数据
-                            {field:'projectName', title:'药品名称',align:'center',width:"25%"}
+                            {field:'projectName', title:'疗程',align:'center',width:"25%"}
                             ,{field:'unitName', title:'单位',align:'center',width:"25%"}
-                            ,{field:'price', title:'单价',align:'center',width:"25%"}
+                            ,{field:'price', title:'疗程描述',align:'center',width:"25%"}
                             ,{fixed: 'right', title:'操作', toolbar: '#userBar',align:'center',width:'25%'}
                         ]]
 
@@ -281,8 +299,7 @@
                     ,cols: [[   //列表    数据
                         {field:'durgname', title:'项目名称',align:'center',width:"20%"}
                         ,{field:'durgnum', title:'数量',align:'center',width:"15%"}
-                        ,{field:'repiceprice', title:'单价',align:'center',width:"15%"}
-                        ,{field:'repicetotal', title:'小计',align:'center',width:"15%"}
+                        ,{field:'repiceprice', title:'hash',align:'center',width:"15%"}
                         ,{field:'ostate', title:'受否检查',align:'center',width:"20%",templet:function(w){
                                 return w.ostate==0?'<font color="blue">非检查</font>':'<font color="red">需检查</font>'
                             }}
@@ -357,6 +374,17 @@
                 })
             }
         })
+        $(document).on('click',"#addbut1", function (){
+            mainIndex=layer.open({
+                type:1,
+                title:'新增疗程',
+                content:$("#addMedPhaseDiv"),
+                area:['500px','500px'],
+                success:function(index){
+                    console.log("good")
+                }
+            });
+        });
         //点击添加药品的取消按钮
         $("#clo").click(function(){
             //关闭弹出的页面
